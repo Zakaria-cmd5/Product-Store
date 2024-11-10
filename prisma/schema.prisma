@@ -17,7 +17,7 @@ model User {
   id        Int        @id @default(autoincrement())
   email     String     @unique
   password  String
-  userName  String
+  userName  String     @unique
   orders    Order[]
   cartItems CartItem[]
   createdAt DateTime   @default(now())

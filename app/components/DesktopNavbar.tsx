@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import classNames from "classnames";
 import Link from "next/link";
@@ -32,8 +32,6 @@ const DesktopNavbar = () => {
           </li>
         ))}
       </ul>
-
-      {/* Login and Sign-Up Button */}
       <div className="hidden md:flex items-center space-x-4">
         <Link
           href="/login"

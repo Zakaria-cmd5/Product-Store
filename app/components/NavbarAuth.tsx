@@ -1,5 +1,6 @@
 import { useSession } from "@/context/SessionContext";
 import Link from "next/link";
+import { logoutAction } from "../actions/logoutAction";
 import Spinner from "./Spinner";
 
 const NavbarAuth = () => {
@@ -10,10 +11,8 @@ const NavbarAuth = () => {
   return (
     <>
       {sessionId ? (
-        <button className="bg-rose-400 px-4 py-2 rounded-full transform transition-transform duration-200 hover:scale-110">
-          <Link href="/signup" className="text-white font-semibold">
-            Logout
-          </Link>
+        <button onClick={() => logoutAction()} className="bg-rose-400 px-4 py-2 rounded-full transform transition-transform duration-200 hover:scale-110 text-white font-semibold">
+          Logout
         </button>
       ) : (
         <div className="hidden md:flex items-center space-x-4">

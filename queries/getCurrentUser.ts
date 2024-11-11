@@ -12,5 +12,8 @@ export async function getCurrentUser() {
     },
   });
 
-  return user?.id;
+  return {
+    id: user?.id,
+    name: user?.userName
+  };
 }

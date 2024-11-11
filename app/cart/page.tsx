@@ -34,7 +34,7 @@ const CartPage = async () => {
             </div>
             <div className="mt-4 flex justify-center">
               <button className="bg-blue-600 text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors">
-                <Link href="/order">Order now</Link>
+                <Link href={`/order/${cartItem.product.id}`}>Order now</Link>
               </button>
             </div>
           </li>

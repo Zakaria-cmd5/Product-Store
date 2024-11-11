@@ -5,16 +5,16 @@ import { getCurrentUser } from "@/queries/getCurrentUser";
 import { redirect } from "next/navigation";
 
 export async function addToCartAction(productId: number) {
-  const userId = await getCurrentUser();
+  const user = await getCurrentUser();
 
-  if (!userId) {
+  if (!user?.id) {
     throw new Error("User must be logged in to add items to the cart.");
   }
 
   const existingProduct = await prisma.cartItem.findFirst({
     where: {
       productId,
-      userId,
+      userId: user.id,
     },
   });
 
@@ -32,7 +32,7 @@ export async function addToCartAction(productId: number) {
   await prisma.cartItem.create({
     data: {
       productId,
-      userId,
+      userId: user.id,
       quantity: 1,
     },
   });

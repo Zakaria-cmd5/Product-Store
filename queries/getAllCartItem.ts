@@ -2,18 +2,18 @@ import prisma from "@/prisma/client";
 import { getCurrentUser } from "./getCurrentUser";
 
 export async function getAllCartItem() {
-  const userId = await getCurrentUser();
+  const user = await getCurrentUser();
 
-  if (!userId) {
+  if (!user?.id) {
     throw new Error("User must be logged in to add items to the cart.");
   }
 
   const cartItems = await prisma.cartItem.findMany({
     where: {
-      userId,
+      userId: user.id,
     },
     include: {
-      product: { select: { price: true, name: true, image: true } },
+      product: { select: { id: true, price: true, name: true, image: true } },
     },
   });
 

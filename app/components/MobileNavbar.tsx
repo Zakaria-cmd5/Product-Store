@@ -1,7 +1,10 @@
+"use client";
+
 import classNames from "classnames";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import NavbarAuth from "./NavbarAuth";
 
 const MobileNavbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -12,7 +15,6 @@ const MobileNavbar = () => {
     { href: "/newProduct", label: "New Product" },
     { href: "/cart", label: "Cart" },
     { href: "/order", label: "Order Now" },
-    { href: "/login", label: "Login" },
   ];
 
   useEffect(() => {
@@ -58,14 +60,7 @@ const MobileNavbar = () => {
               {link.label}
             </Link>
           ))}
-          <button
-            className="bg-teal-500 px-4 py-2 rounded-full w-full text-center"
-            onClick={() => setOpenMenu(false)}
-          >
-            <Link href="/signup" className="text-white font-semibold">
-              Create account
-            </Link>
-          </button>
+          <NavbarAuth />
         </div>
       )}
     </>

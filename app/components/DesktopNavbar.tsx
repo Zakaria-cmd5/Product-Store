@@ -3,6 +3,7 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import NavbarAuth from "./NavbarAuth";
 
 const DesktopNavbar = () => {
   const currentPath = usePathname();
@@ -32,19 +33,7 @@ const DesktopNavbar = () => {
           </li>
         ))}
       </ul>
-      <div className="hidden md:flex items-center space-x-4">
-        <Link
-          href="/login"
-          className="text-gray-600 hover:text-teal-500 transition-colors duration-200"
-        >
-          Login
-        </Link>
-        <button className="bg-teal-500 px-4 py-2 rounded-full transform transition-transform duration-200 hover:scale-110">
-          <Link href="/signup" className="text-white font-semibold">
-            Create account
-          </Link>
-        </button>
-      </div>
+      <NavbarAuth />
     </>
   );
 };

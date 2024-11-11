@@ -18,6 +18,7 @@ model User {
   email     String     @unique
   password  String
   userName  String     @unique
+  role      Role       @default(USER)
   orders    Order[]
   cartItems CartItem[]
   createdAt DateTime   @default(now())
@@ -68,4 +69,9 @@ model OrderItem {
   price     Float
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
 }

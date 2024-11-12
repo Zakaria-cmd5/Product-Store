@@ -1,3 +1,4 @@
+import { SearchStoreProvider } from "@/providers/SearchStoreProvider";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Navbar from "./components/Navbar";
@@ -30,7 +31,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50`}
       >
         <Navbar />
-        <main>{children}</main>
+        <main>
+          <SearchStoreProvider>{children}</SearchStoreProvider>
+        </main>
       </body>
     </html>
   );

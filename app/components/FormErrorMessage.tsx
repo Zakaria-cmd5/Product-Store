@@ -7,6 +7,8 @@ const FromErrorMessage = ({ children }: PropsWithChildren) => {
         {children}
       </div>
     );
+
+  return null;
 };
 
 export default FromErrorMessage;

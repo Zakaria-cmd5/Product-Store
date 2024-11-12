@@ -67,21 +67,15 @@ export async function signupAction(
     };
   }
 
-  const User = await prisma.user.findFirst({
+  const user = await prisma.user.findFirst({
     where: {
       userName: validation.data.userName,
     },
   });
 
-  if (User?.userName === userName) {
+  if (user) {
     return {
-      message: "User name already taken",
-    };
-  }
-
-  if (User?.email === email) {
-    return {
-      message: "Email already exists",
+      message: "User is already exist",
     };
   }
 

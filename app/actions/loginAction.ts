@@ -46,35 +46,27 @@ export async function loginAction(
   if (!validation.success) {
     return {
       errors: validation.error.flatten().fieldErrors,
-      message: "Login Error",
+      message: "Please fix the errors above.",
     };
   }
 
-  const User = await prisma.user.findFirst({
+  const user = await prisma.user.findFirst({
     where: {
       email: validation.data.email,
     },
   });
 
-  if (User?.email !== email) {
+  if (!user) {
     return {
       errors: {
-        email: ["Invaild email or password"],
-      },
-    };
-  }
-
-  if (User.userName !== userName) {
-    return {
-      errors: {
-        userName: ["User name is exist before"],
+        email: ["Invalid email or password."],
       },
     };
   }
 
   const isPasswordValid = await bcrypt.compare(
     validation.data.password,
-    User.password
+    user.password
   );
 
   if (!isPasswordValid) {
@@ -83,7 +75,7 @@ export async function loginAction(
     };
   }
 
-  const userId = User.id.toString();
+  const userId = user.id.toString();
   await createSession(userId);
 
   redirect("/");

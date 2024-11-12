@@ -61,7 +61,6 @@ export async function newProductAction(
       description: validation.data.description,
       price: validation.data.price,
       image: validation.data.image,
-      quantity: 1,
     },
   });
 

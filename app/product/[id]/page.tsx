@@ -1,6 +1,7 @@
 import AddToCartButton from "@/app/components/AddToCartButton";
 import { getProduct } from "@/queries/getProduct";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import DeleteProductButton from "./_components/DeleteProductButton";
 
@@ -38,7 +39,7 @@ const ProductDetailPage = async ({ params }: Props) => {
       <div className="flex flex-col gap-4">
         <DeleteProductButton productId={parseInt(id)} />
         <button className="bg-green-500 text-white py-3 px-5 rounded-lg font-semibold hover:bg-green-600 transition-colors max-w-xs">
-          Update Product
+          <Link href={`/product/${id}/updateProduct`}>Update Product</Link>
         </button>
         <AddToCartButton productId={parseInt(id)} />
       </div>

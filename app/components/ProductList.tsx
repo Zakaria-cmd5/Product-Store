@@ -6,6 +6,13 @@ import AddToCartButton from "./AddToCartButton";
 const ProductList = async () => {
   const products = await getAllProduct();
 
+  if (!products)
+    return (
+      <p className="text-center text-lg font-semibold text-gray-500 p-4 bg-gray-100 rounded-lg shadow-md">
+        There are no products yet
+      </p>
+    );
+
   return (
     <div className="bg-gray-50 text-gray-800 p-4">
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

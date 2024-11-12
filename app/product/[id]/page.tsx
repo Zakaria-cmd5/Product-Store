@@ -1,5 +1,7 @@
 import AddToCartButton from "@/app/components/AddToCartButton";
+import { getCurrentUser } from "@/queries/getCurrentUser";
 import { getProduct } from "@/queries/getProduct";
+import { Role } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -20,6 +22,8 @@ const ProductDetailPage = async ({ params }: Props) => {
 
   if (!product) return null;
 
+  const user = await getCurrentUser();
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 bg-gray-50 rounded-lg shadow-lg max-w-5xl mx-auto mt-10">
       <div className="space-y-4">
@@ -37,10 +41,14 @@ const ProductDetailPage = async ({ params }: Props) => {
         <p className="text-xl font-semibold text-teal-600">${product.price}</p>
       </div>
       <div className="flex flex-col gap-4">
-        <DeleteProductButton productId={parseInt(id)} />
-        <button className="bg-green-500 text-white py-3 px-5 rounded-lg font-semibold hover:bg-green-600 transition-colors max-w-xs">
-          <Link href={`/product/${id}/updateProduct`}>Update Product</Link>
-        </button>
+        {user?.role === Role.ADMIN && (
+          <>
+            <DeleteProductButton productId={parseInt(id)} />
+            <button className="bg-green-500 text-white py-3 px-5 rounded-lg font-semibold hover:bg-green-600 transition-colors max-w-xs">
+              <Link href={`/product/${id}/updateProduct`}>Update Product</Link>
+            </button>
+          </>
+        )}
         <AddToCartButton productId={parseInt(id)} />
       </div>
     </div>

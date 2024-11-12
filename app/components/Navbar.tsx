@@ -1,12 +1,13 @@
 import { getCartItemCount } from "@/queries/getCartItemCount";
-import { getUserSession } from "@/utils/getUserSession";
+import { getCurrentUser } from "@/queries/getCurrentUser";
+import { Role } from "@prisma/client";
 import Link from "next/link";
 import LogoutButton from "./LogoutButton";
 
 const Navbar = async () => {
-  const userId = await getUserSession();
+  const user = await getCurrentUser();
 
-  const cartItemCount = await getCartItemCount(parseInt(userId!));
+  const cartItemCount = await getCartItemCount(user?.id);
 
   return (
     <div className="bg-gray-50">
@@ -18,8 +19,16 @@ const Navbar = async () => {
           >
             Snap Cart
           </Link>
+          {user?.role === Role.ADMIN && (
+            <Link
+              href="/newProduct"
+              className="duration-200 transition-colors hover:text-teal-600"
+            >
+              New Product
+            </Link>
+          )}
           <div className="flex items-center space-x-6">
-            {userId && (
+            {user?.id && (
               <Link
                 href="/cart"
                 className="relative transition-all duration-200 hover:scale-110"
@@ -43,7 +52,7 @@ const Navbar = async () => {
                 </div>
               </Link>
             )}
-            {userId ? (
+            {user?.id ? (
               <LogoutButton />
             ) : (
               <div className="items-center space-x-4">

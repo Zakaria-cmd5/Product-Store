@@ -14,6 +14,7 @@ export async function getCurrentUser() {
 
   return {
     id: user?.id,
-    name: user?.userName
+    name: user?.userName,
+    role: user?.role
   };
 }

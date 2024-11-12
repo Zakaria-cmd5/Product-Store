@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
+import { createSession } from "./session";
 
 const prisma = new PrismaClient();
 
@@ -18,7 +19,7 @@ const createAdminIfNotExist = async () => {
   if (!existsedAdmin) {
     const hashedPassword = await hashPassword("B7VHDF8PCVEW");
 
-    await prisma.user.create({
+    const user = await prisma.user.create({
       data: {
         userName: "Admin",
         email: "admin@email.com",
@@ -27,8 +28,9 @@ const createAdminIfNotExist = async () => {
       },
     });
 
-    console.log("Admin user created successfully.");
+    const userId = user.id.toString();
+    await createSession(userId, user.role);
   }
 };
 
-export default createAdminIfNotExist
+export default createAdminIfNotExist;

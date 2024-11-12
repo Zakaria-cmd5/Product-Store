@@ -76,7 +76,7 @@ export async function loginAction(
   }
 
   const userId = user.id.toString();
-  await createSession(userId);
+  await createSession(userId, user.role);
 
   redirect("/");
 }

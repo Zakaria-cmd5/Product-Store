@@ -2,14 +2,11 @@ import { getProduct } from "@/queries/getProduct";
 import { notFound } from "next/navigation";
 import UpdateProductForm from "./_components/UpdateProductForm";
 
-interface Props {
-  params: {
-    id: string;
-  };
-}
+type Params = Promise<{ id: string }>;
 
-const UpdateProductpage = async ({ params }: Props) => {
-  const { id } = await params;
+const UpdateProductpage = async (props: { params: Params }) => {
+  const params = await props.params;
+  const id = params.id;
 
   if (!id) return notFound();
 

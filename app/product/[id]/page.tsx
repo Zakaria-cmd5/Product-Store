@@ -7,14 +7,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import DeleteProductButton from "./_components/DeleteProductButton";
 
-interface Props {
-  params: {
-    id: string;
-  };
-}
+type Params = Promise<{ id: string }>;
 
-const ProductDetailPage = async ({ params }: Props) => {
-  const { id } = await params;
+const ProductDetailPage = async (props: { params: Params }) => {
+  const params = await props.params;
+  const id = params.id;
 
   if (!id) return notFound();
 

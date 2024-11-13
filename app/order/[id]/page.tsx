@@ -3,14 +3,11 @@ import { getTheCartItemPrice } from "@/queries/getTheCartItemPrice";
 import { notFound } from "next/navigation";
 import OrderPageContent from "../_components/OrderPageContent";
 
-interface Props {
-  params: {
-    id: string;
-  };
-}
+type Params = Promise<{ id: string }>;
 
-const OrderPage = async ({ params }: Props) => {
-  const { id } = await params;
+const OrderPage = async (props: { params: Params }) => {
+  const params = await props.params;
+  const id = params.id;
 
   if (!id) return notFound();
 

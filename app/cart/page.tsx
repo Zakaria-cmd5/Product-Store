@@ -35,7 +35,7 @@ const CartPage = async () => {
               <p className="text-lg font-semibold text-center text-gray-800">
                 {cartItem.product.name}
               </p>
-              <CartItemQuantity quantity={cartItem.quantity}/>
+              <CartItemQuantity quantity={cartItem.quantity} productId={cartItem.productId} cartItemId={cartItem.id}/>
               <p className="text-lg font-semibold text-center text-amber-600">
                 Total: $
                 {`${(cartItem.product.price * cartItem.quantity).toFixed(2)}`}

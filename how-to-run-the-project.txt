@@ -9,4 +9,12 @@
     and the example of what you need to setup in the .example.env file 
 
 5 - to run the project write in the terminal npm run dev to run it in the development
-    enviroment or npm start to run the project in the prodction enviroment    
+    enviroment or npm start to run the project in the prodction enviroment  
+
+6 - thre are two type of users admin and a common user 
+    there are just one admin how can create a new product 
+    delete product update product and to login as an admin
+    you have to go to the login page and enter these value
+    Name: Admin,
+    Email: admin@email.com,
+    Password: B7VHDF8PCVEW       

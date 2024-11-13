@@ -1,7 +1,7 @@
 "use client";
 
-import { updateProductAction } from "@/app/actions/updateProductAction";
-import FromErrorMessage from "@/app/components/FormErrorMessage";
+import { updateProductAction } from "@/actions/updateProductAction";
+import FromErrorMessage from "@/components/FormErrorMessage";
 import { useActionState } from "react";
 
 interface Props {

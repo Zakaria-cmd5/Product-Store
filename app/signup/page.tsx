@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
-import { signupAction } from "../actions/signupAction";
-import FromErrorMessage from "../components/FormErrorMessage";
+import { signupAction } from "../../actions/signupAction";
+import FromErrorMessage from "../../components/FormErrorMessage";
 
 const SignupPage = () => {
   const initState = { errors: {}, message: "" };

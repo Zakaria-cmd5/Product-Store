@@ -1,7 +1,7 @@
 import { SearchStoreProvider } from "@/providers/SearchStoreProvider";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Navbar from "./components/Navbar";
+import Navbar from "../components/Navbar";
 import "./globals.css";
 
 const geistSans = localFont({

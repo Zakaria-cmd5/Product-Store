@@ -1,4 +1,4 @@
-import AddToCartButton from "@/app/components/AddToCartButton";
+import AddToCartButton from "@/components/AddToCartButton";
 import { getCurrentUser } from "@/queries/getCurrentUser";
 import { getProduct } from "@/queries/getProduct";
 import { Role } from "@prisma/client";

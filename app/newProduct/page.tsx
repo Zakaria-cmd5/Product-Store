@@ -1,8 +1,8 @@
 "use client";
 
 import { useActionState } from "react";
-import { newProductAction } from "../actions/newProductAction";
-import FromErrorMessage from "../components/FormErrorMessage";
+import { newProductAction } from "../../actions/newProductAction";
+import FromErrorMessage from "../../components/FormErrorMessage";
 
 const NewProductPage = () => {
   const initState = { errors: {}, message: "" };

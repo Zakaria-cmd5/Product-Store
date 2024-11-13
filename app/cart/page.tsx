@@ -1,13 +1,13 @@
 import { getAllCartItem } from "@/queries/getAllCartItem";
 import Image from "next/image";
-import Link from "next/link";
+import CartItemsButtons from "./_components/CartItemsButtons";
 
 const CartPage = async () => {
   const cartItems = await getAllCartItem();
 
-  if(!cartItems) {
+  if(cartItems.length === 0) {
     return (
-      <p className="text-center text-lg font-semibold text-indigo-700 p-6 bg-indigo-50 rounded-lg shadow-lg border border-indigo-100">
+      <p className="text-center w-[50%] mx-auto text-lg font-semibold text-amber-700 p-6 bg-amber-50 rounded-lg shadow-lg border border-indigo-100">
         There are no Cart Item yet
       </p>
     )
@@ -42,11 +42,7 @@ const CartPage = async () => {
                 {`${(cartItem.product.price * cartItem.quantity).toFixed(2)}`}
               </p>
             </div>
-            <div className="mt-6 flex justify-center">
-              <button className="bg-amber-600 text-white py-2 px-5 rounded-lg font-semibold hover:bg-amber-700 transition-colors">
-                <Link href={`/order/${cartItem.product.id}`}>Order now</Link>
-              </button>
-            </div>
+            <CartItemsButtons productId={cartItem.productId} cartItemId={cartItem.id}/>
           </li>
         ))}
       </ul>

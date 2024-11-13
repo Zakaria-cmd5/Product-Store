@@ -19,9 +19,9 @@ const ProductList = ({ products, userRole }: Props) => {
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  if (!filteredProducts)
+  if (filteredProducts.length === 0)
     return (
-      <p className="text-center text-lg font-semibold text-indigo-700 p-6 bg-indigo-50 rounded-lg shadow-lg border border-indigo-100">
+      <p className="text-center w-[50%] mx-auto text-lg font-semibold text-amber-700 p-6 bg-amber-50 rounded-lg shadow-lg border border-indigo-100">
         There are no products yet
       </p>
     );

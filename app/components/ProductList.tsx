@@ -20,41 +20,41 @@ const ProductList = ({ products }: Props) => {
 
   if (!filteredProducts)
     return (
-      <p className="text-center text-lg font-semibold text-gray-500 p-4 bg-gray-100 rounded-lg shadow-md">
+      <p className="text-center text-lg font-semibold text-indigo-700 p-6 bg-indigo-50 rounded-lg shadow-lg border border-indigo-100">
         There are no products yet
       </p>
     );
 
   return (
-    <div className="flex flex-col items-center mt-10">
-      <div className="w-full max-w-md mb-6">
+    <div className="flex flex-col items-center mt-10 space-y-8 px-4">
+      <div className="w-full max-w-lg mb-6">
         <SearchInput />
       </div>
-      <div className="bg-gray-50 text-gray-800 p-4 w-full">
+      <div className="bg-gray-50 text-gray-800 p-6 rounded-lg shadow-md w-full max-w-screen-lg">
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredProducts.map((product) => (
             <li
               key={product.id}
-              className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200"
+              className="bg-white p-5 rounded-xl shadow-lg hover:shadow-2xl transform transition-transform duration-200 hover:-translate-y-1"
             >
               <Link href={`/product/${product.id}`} className="block">
                 <div className="flex flex-col items-center">
                   <Image
                     src={product.image}
-                    alt="Product Image"
-                    width={70}
-                    height={70}
-                    className="object-cover rounded-full mb-3"
+                    alt={`${product.name} Image`}
+                    width={100}
+                    height={100}
+                    className="object-cover rounded-full mb-4 border-4 border-amber-100 shadow-sm"
                   />
-                  <p className="text-lg font-semibold text-center">
+                  <p className="text-lg font-semibold text-center text-gray-700">
                     {product.name}
                   </p>
-                  <p className="text-gray-500 text-sm text-center">{`$${product.price.toFixed(
-                    2
-                  )}`}</p>
+                  <p className="text-gray-500 text-md text-center mt-1">
+                    {`$${product.price.toFixed(2)}`}
+                  </p>
                 </div>
               </Link>
-              <div className="mt-4 flex justify-center">
+              <div className="mt-5 flex justify-center">
                 <AddToCartButton productId={product.id} />
               </div>
             </li>

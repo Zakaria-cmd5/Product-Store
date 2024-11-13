@@ -17,13 +17,13 @@ const SignupPage = () => {
         action={dispatch}
         className="flex flex-col bg-white p-8 rounded-lg shadow-md w-full max-w-md space-y-6"
       >
-        <h2 className="text-2xl font-bold text-teal-600 text-center">
+        <h2 className="text-2xl font-bold text-amber-600 text-center">
           Create an Account
         </h2>
         <input
           type="text"
           placeholder="Name"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-teal-500 transition duration-200"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-amber-500 transition duration-200"
           name="userName"
         />
         <FromErrorMessage>
@@ -32,7 +32,7 @@ const SignupPage = () => {
         <input
           type="email"
           placeholder="Email"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-teal-500 transition duration-200"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-amber-500 transition duration-200"
           name="email"
         />
         <FromErrorMessage>
@@ -41,7 +41,7 @@ const SignupPage = () => {
         <input
           type="password"
           placeholder="Password"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-teal-500 transition duration-200"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-amber-500 transition duration-200"
           name="password"
         />
         <FromErrorMessage>
@@ -50,7 +50,7 @@ const SignupPage = () => {
         <input
           type="password"
           placeholder="Re-Enter Password"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-teal-500 transition duration-200"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-amber-500 transition duration-200"
           name="reEnterPassword"
         />
         <FromErrorMessage>
@@ -59,14 +59,14 @@ const SignupPage = () => {
         <FromErrorMessage>{formError.message}</FromErrorMessage>
         <button
           type="submit"
-          className="w-full bg-teal-500 text-white font-semibold py-2 rounded-lg hover:bg-teal-600 transition duration-200"
+          className="w-full bg-amber-500 text-white font-semibold py-2 rounded-lg hover:bg-amber-600 transition duration-200"
           disabled={isLoading}
         >
           Sign Up
         </button>
         <p className="text-sm text-gray-500 text-center">
           Already have an account?{" "}
-          <Link href="/login" className="text-teal-600 hover:underline">
+          <Link href="/login" className="text-amber-600 hover:underline">
             Log in
           </Link>
         </p>

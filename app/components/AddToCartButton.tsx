@@ -10,7 +10,7 @@ const AddToCartButton = ({ productId }: Props) => {
   return (
     <button
       onClick={() => addToCartAction(productId)}
-      className="bg-blue-600 text-white py-3 px-5 rounded-lg font-semibold hover:bg-blue-700 transition-colors max-w-xs"
+      className="bg-amber-600 text-white py-3 px-5 rounded-lg font-semibold hover:bg-amber-700 transition-colors duration-200 ease-in-out max-w-xs"
     >
       Add to Cart
     </button>

@@ -6,34 +6,36 @@ const CartPage = async () => {
   const cartItems = await getAllCartItem();
 
   return (
-    <div className="bg-gray-50 text-gray-800 p-4">
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div className="bg-gray-50 text-gray-800 p-8">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {cartItems.map((cartItem) => (
           <li
             key={cartItem.id}
-            className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200"
+            className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
           >
             <div className="flex flex-col items-center">
-              <Image
-                src={cartItem.product.image}
-                alt="Product Image"
-                width={70}
-                height={70}
-                className="object-cover rounded-full mb-3"
-              />
-              <p className="text-lg font-semibold text-center">
+              <div className="relative w-28 h-28 rounded-full overflow-hidden shadow-md mb-4">
+                <Image
+                  src={cartItem.product.image}
+                  alt="Product Image"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-full"
+                />
+              </div>
+              <p className="text-lg font-semibold text-center text-gray-800">
                 {cartItem.product.name}
               </p>
-              <p className="text-lg font-semibold text-center">
-                Quantity:{cartItem.quantity}
+              <p className="text-md font-semibold text-center text-gray-600">
+                Quantity: {cartItem.quantity}
               </p>
-              <p className="text-gray-500 text-sm text-center">
+              <p className="text-lg font-semibold text-center text-amber-600">
                 Total: $
                 {`${(cartItem.product.price * cartItem.quantity).toFixed(2)}`}
               </p>
             </div>
-            <div className="mt-4 flex justify-center">
-              <button className="bg-blue-600 text-white py-2 px-4 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors">
+            <div className="mt-6 flex justify-center">
+              <button className="bg-amber-600 text-white py-2 px-5 rounded-lg font-semibold hover:bg-amber-700 transition-colors">
                 <Link href={`/order/${cartItem.product.id}`}>Order now</Link>
               </button>
             </div>

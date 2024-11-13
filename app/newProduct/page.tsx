@@ -14,13 +14,13 @@ const NewProductPage = () => {
         action={dispatch}
         className="flex flex-col bg-white p-8 rounded-lg shadow-md w-full max-w-md space-y-6"
       >
-        <h2 className="text-2xl font-bold text-teal-600 text-center">
+        <h2 className="text-2xl font-bold text-amber-600 text-center">
           Create New Product
         </h2>
         <input
           type="text"
           placeholder="Name"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-teal-500 transition duration-200"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-amber-500 transition duration-200"
           name="name"
         />
         <FromErrorMessage>
@@ -29,7 +29,7 @@ const NewProductPage = () => {
         <input
           type="text"
           placeholder="Description"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-teal-500 transition duration-200"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-amber-500 transition duration-200"
           name="desc"
         />
         <FromErrorMessage>
@@ -38,7 +38,7 @@ const NewProductPage = () => {
         <input
           type="number"
           placeholder="Price"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-teal-500 transition duration-200"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-amber-500 transition duration-200"
           name="price"
         />
         <FromErrorMessage>
@@ -47,7 +47,7 @@ const NewProductPage = () => {
         <input
           type="text"
           placeholder="image"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-teal-500 transition duration-200"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-amber-500 transition duration-200"
           name="image"
         />
         <FromErrorMessage>
@@ -56,7 +56,7 @@ const NewProductPage = () => {
         <FromErrorMessage>{formError.message}</FromErrorMessage>
         <button
           type="submit"
-          className="w-full bg-teal-500 text-white font-semibold py-2 rounded-lg hover:bg-teal-600 transition duration-200"
+          className="w-full bg-amber-600 text-white font-semibold py-2 rounded-lg hover:bg-amber-600 transition duration-200"
           //   disabled={isLoading}
         >
           Create

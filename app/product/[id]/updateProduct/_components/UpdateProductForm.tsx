@@ -24,13 +24,13 @@ const UpdateProductForm = ({ id, name, description, image, price }: Props) => {
         action={dispatch}
         className="flex flex-col bg-white p-8 rounded-lg shadow-md w-full max-w-md space-y-6"
       >
-        <h2 className="text-2xl font-bold text-teal-600 text-center">
+        <h2 className="text-2xl font-bold text-amber-600 text-center">
           Create New Product
         </h2>
         <input
           type="text"
           placeholder="Name"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-teal-500 transition duration-200"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-amber-500 transition duration-200"
           name="name"
           defaultValue={name || ""}
         />
@@ -40,7 +40,7 @@ const UpdateProductForm = ({ id, name, description, image, price }: Props) => {
         <input
           type="text"
           placeholder="Description"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-teal-500 transition duration-200"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-amber-500 transition duration-200"
           name="desc"
           defaultValue={description || ""}
         />
@@ -50,7 +50,7 @@ const UpdateProductForm = ({ id, name, description, image, price }: Props) => {
         <input
           type="number"
           placeholder="Price"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-teal-500 transition duration-200"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-amber-500 transition duration-200"
           name="price"
           defaultValue={price || 0}
         />
@@ -60,7 +60,7 @@ const UpdateProductForm = ({ id, name, description, image, price }: Props) => {
         <input
           type="text"
           placeholder="image"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-teal-500 transition duration-200"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-amber-500 transition duration-200"
           name="image"
           defaultValue={image || ""}
         />
@@ -70,7 +70,7 @@ const UpdateProductForm = ({ id, name, description, image, price }: Props) => {
         <FromErrorMessage>{formError.message}</FromErrorMessage>
         <button
           type="submit"
-          className="w-full bg-teal-500 text-white font-semibold py-2 rounded-lg hover:bg-teal-600 transition duration-200"
+          className="w-full bg-amber-500 text-white font-semibold py-2 rounded-lg hover:bg-amber-600 transition duration-200"
           disabled={isLoading}
         >
           Update

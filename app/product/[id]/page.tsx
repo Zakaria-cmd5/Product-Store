@@ -25,9 +25,9 @@ const ProductDetailPage = async ({ params }: Props) => {
   const user = await getCurrentUser();
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 bg-gray-50 rounded-lg shadow-lg max-w-5xl mx-auto mt-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 bg-amber-50 rounded-lg shadow-xl max-w-5xl mx-auto mt-10">
       <div className="space-y-4">
-        <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-md">
+        <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg">
           <Image
             src={product.image}
             alt="Product Image"
@@ -36,20 +36,20 @@ const ProductDetailPage = async ({ params }: Props) => {
             className="rounded-lg bg-white bg-blend-screen"
           />
         </div>
-        <h2 className="text-2xl font-bold text-gray-800">{product.name}</h2>
+        <h2 className="text-3xl font-bold text-gray-800">{product.name}</h2>
         <p className="text-gray-600">{product.description}</p>
-        <p className="text-xl font-semibold text-teal-600">${product.price}</p>
+        <p className="text-xl font-semibold text-amber-600">${product.price}</p>
       </div>
       <div className="flex flex-col gap-4">
         {user?.role === Role.ADMIN && (
           <>
             <DeleteProductButton productId={parseInt(id)} />
-            <button className="bg-green-500 text-white py-3 px-5 rounded-lg font-semibold hover:bg-green-600 transition-colors max-w-xs">
+            <button className="bg-amber-600 text-white py-3 px-5 rounded-lg font-semibold hover:bg-amber-700 transition-colors duration-200 ease-in-out max-w-xs">
               <Link href={`/product/${id}/updateProduct`}>Update Product</Link>
             </button>
           </>
         )}
-        <AddToCartButton productId={parseInt(id)} />
+        {user?.id && <AddToCartButton productId={parseInt(id)} />}
       </div>
     </div>
   );

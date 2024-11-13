@@ -19,6 +19,10 @@ export async function middleware(req: NextRequest) {
   const decryptCookie = cookie.get("session")?.value;
   const session = cookie ? await decrypt(decryptCookie) : null;
 
+  if ((path === "/cart" || /^\/order\/.*/.test(path)) && session?.role === "ADMIN") {
+    return NextResponse.redirect(new URL("/", req.nextUrl));
+  }
+
   if (isProtectedRoute && !session?.userId) {
     return NextResponse.redirect(new URL("/signup", req.nextUrl));
   }

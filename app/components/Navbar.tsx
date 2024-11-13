@@ -28,7 +28,7 @@ const Navbar = async () => {
             </Link>
           )}
           <div className="flex items-center space-x-6">
-            {user?.id && (
+            {user?.role === Role.USER && (
               <Link
                 href="/cart"
                 className="relative text-gray-50 transition-all duration-200 hover:scale-105"

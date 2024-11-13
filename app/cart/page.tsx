@@ -5,6 +5,14 @@ import Link from "next/link";
 const CartPage = async () => {
   const cartItems = await getAllCartItem();
 
+  if(!cartItems) {
+    return (
+      <p className="text-center text-lg font-semibold text-indigo-700 p-6 bg-indigo-50 rounded-lg shadow-lg border border-indigo-100">
+        There are no Cart Item yet
+      </p>
+    )
+  }
+
   return (
     <div className="bg-gray-50 text-gray-800 p-8">
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">

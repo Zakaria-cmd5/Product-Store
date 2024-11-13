@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchStore } from "@/providers/SearchStoreProvider";
-import { Product } from "@prisma/client";
+import { Product, Role } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
 import AddToCartButton from "./AddToCartButton";
@@ -9,9 +9,10 @@ import SearchInput from "./SearchInput";
 
 interface Props {
   products: Product[];
+  userRole: string | undefined;
 }
 
-const ProductList = ({ products }: Props) => {
+const ProductList = ({ products, userRole }: Props) => {
   const searchTerm = useSearchStore((state) => state.searchTerm);
 
   const filteredProducts = products.filter((product) =>
@@ -55,7 +56,9 @@ const ProductList = ({ products }: Props) => {
                 </div>
               </Link>
               <div className="mt-5 flex justify-center">
-                <AddToCartButton productId={product.id} />
+                {userRole === Role.USER && (
+                  <AddToCartButton productId={product.id} />
+                )}
               </div>
             </li>
           ))}

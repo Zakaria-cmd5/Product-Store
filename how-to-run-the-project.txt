@@ -1,0 +1,12 @@
+1 - go to the cmd in your machine and run the command 
+    git clone https://github.com/Zakaria-cmd5/Product-Store.git
+
+2 - then go to the project folder where you clone it and open it in vscode
+
+3 - open the terminal in the vscode and run the command npm i 
+
+4 - create the .env in the route of the project and set up with your data 
+    and the example of what you need to setup in the .example.env file 
+
+5 - to run the project write in the terminal npm run dev to run it in the development
+    enviroment or npm start to run the project in the prodction enviroment    
